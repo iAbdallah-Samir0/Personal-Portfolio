@@ -1,0 +1,594 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --main-color: #7cf03d;
+    --white-color: #fff;
+    --disabled-color: #fff3;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
+    overflow: hidden !important;
+}
+
+body {
+    color: var(--white-color);
+    background: var(--bg-color);
+    min-height: 100vh;
+    overflow: hidden !important;
+    line-height: 1.6;
+}
+
+/* Activate scroll on mobile only */
+@media screen and (max-width: 768px) {
+    html {
+        overflow: visible !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body {
+        overflow: visible !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+    }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+header.show {
+    animation: header-fade-in 0.8s ease-out forwards;
+}
+
+@keyframes header-fade-in {
+    0% {
+        visibility: visible;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white-color);
+}
+
+nav a {
+    font-size: 2rem;
+    color: var(--white-color);
+    font-weight: 500;
+    margin-left: 3.5rem;
+    transition: .5s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--main-color);
+}
+
+#menu-icon {
+    font-size: 4rem;
+    display: none;
+    cursor: pointer;
+}
+
+/* Bars Animation */
+.bars-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1000;
+    pointer-events: none;
+    /* Arrange the bars from right to left */
+    flex-direction: row-reverse;
+}
+
+.bars-box .bar {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    /* Home: Bars at the top of the screen (hidden) */
+    transform: translateY(-100%);
+    opacity: 1;
+}
+
+/* The animation starts with the addition of the loaded class */
+.bars-box.loaded .bar {
+    animation: slide-down-wait-up-bars 2.6s ease-in-out forwards;
+    /* Right to Left Delay - The first bar (right) goes first */
+    animation-delay: calc(0.15s * (7 - var(--i)));
+}
+
+@keyframes slide-down-wait-up-bars {
+    /* Descent Phase - 0% to 25% (0.65 seconds) */
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    /* Hold phase - 25% to 75% (1.3 seconds) */
+    75% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    /* Rising phase - 75% to 100% (0.65 seconds) */
+    100% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+}
+
+/*start section department*/
+section {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    padding: 10rem 9% 2rem;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    overflow: hidden;
+}
+
+/* Solve the scroll problem on mobile */
+@media screen and (max-width: 768px) {
+    section {
+        position: static !important;
+        height: auto !important;
+        min-height: 100vh;
+        overflow: visible !important;
+        margin-bottom: 0;
+        display: block;
+    }
+
+    /* Hide all sections except the active one */
+    section:not(.show) {
+        display: none !important;
+    }
+
+    section.show {
+        display: block !important;
+        position: static !important;
+        height: auto !important;
+        min-height: 100vh;
+        overflow: visible !important;
+    }
+}
+
+section.show {
+    animation: section-fade-in 1s ease-out forwards;
+}
+
+@keyframes section-fade-in {
+    0% {
+        visibility: visible;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heading {
+    font-size: 4.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.heading span {
+    color: var(--main-color);
+}
+/*end section department*/
+
+/*start portfolio department*/
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.portfolio-detail {
+    display: none;
+}
+
+.portfolio-detail.active {
+    display: block;
+}
+
+.portfolio-box .numb {
+    font-size: 8rem;
+    -webkit-text-stroke: .07rem var(--white-color);
+    color: transparent;
+    line-height: 1;
+}
+
+.portfolio-box h3 {
+    font-size: 3.5rem;
+    margin: .8rem 0 2rem;
+}
+
+.portfolio-box p {
+    font-size: 1.6rem;
+}
+
+.portfolio-box .tech {
+    margin: 2rem 0;
+    color: var(--main-color);
+    border-bottom: .1rem solid var(--white-color);
+    padding-bottom: 2rem;
+}
+
+.portfolio-box .live-github a {
+    position: relative;
+    display: inline-flex;
+    padding: 1.3rem;
+    font-size: 3rem;
+    color: var(--white-color);
+    border-radius: 50%;
+    background: var(--second-bg-color);
+    transition: .5s;
+}
+
+.portfolio-box .live-github a:hover {
+    color: var(--main-color);
+}
+
+.portfolio-box .live-github a:first-child {
+    margin-right: 1.5rem;
+}
+
+.portfolio-box .live-github a:first-child i {
+    transform: rotate(135deg);
+}
+
+.portfolio-box .live-github a span {
+    position: absolute;
+    top: -60%;
+    left: 50%;
+    transform: translateX(-50%) scale(.9);
+    font-size: 1.6rem;
+    white-space: nowrap;
+    padding: .5rem 1rem;
+    border-radius: .6rem;
+    pointer-events: none;
+    background: var(--white-color);
+    color: var(--bg-color);
+    opacity: 0;
+    transition: .25s;
+}
+
+.portfolio-box .live-github a:hover span {
+    top: -70%;
+    opacity: 1;
+    transform: translateX(-50%) scale(.9);
+}
+
+/* Portfolio Carousel improvements */
+.portfolio-box .portfolio-carousel {
+    width: 100%;
+    height: 45rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.portfolio-carousel .img-slide {
+    display: flex;
+    width: calc(100% * 3); /* Fixed container width = 100% x number of images */
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-carousel .img-item {
+    flex: 0 0 33.333333%; /* Each image takes up exactly one-third of the width */
+    width: 33.333333%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.portfolio-carousel .img-item img {
+    width: 100%;
+    height: 90%;
+    object-fit: contain;
+    border-radius: 1rem;
+    display: block;
+}
+
+.portfolio-box .navigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.portfolio-box .navigation button {
+    pointer-events: all;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: rgba(50, 57, 70, 0.8);
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.portfolio-box .navigation button:hover:not(.disabled) {
+    background: var(--main-color);
+    color: var(--second-bg-color);
+    transform: scale(1.1);
+}
+
+.portfolio-box .navigation button.disabled {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.2);
+    background: rgba(50, 57, 70, 0.4);
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.portfolio-box .navigation .arrow-right {
+    margin-right: 1rem;
+}
+
+.portfolio-box .navigation .arrow-left {
+    margin-left: 1rem;
+}
+/*end portfolio department*/
+
+/* breakpoints */
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    header {
+        padding: 2rem 4%;
+    }
+    section {
+        padding: 10rem 4% 2rem;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .contact-box .field-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        background: var(--bg-color);
+        box-shadow: 0.5rem 1rem rgba(0, 0, 0, .2);
+        text-align: center;
+        display: none;
+    }
+    nav.active {
+        display: block;
+    }
+    nav a {
+        display: block;
+        margin: 4rem 0;
+    }
+    .home {
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 2rem;
+    }
+    /* Fix profile image size - Prevent excessive zooming */
+    .home-img .img-box {
+        width: 35rem !important;
+        height: 35rem !important;
+        min-width: 35rem !important;
+        min-height: 35rem !important;
+        max-width: none !important;
+        max-height: none !important;
+    }
+    .resume-container,
+    .portfolio-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    .resume-container {
+        gap: 3rem;
+    }
+    .portfolio-container .portfolio-box:first-child {
+        order: 1;
+    }
+    .contact-box .field-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Carousel improvements for mobile */
+    .portfolio-box .portfolio-carousel {
+        height: 35rem;
+        touch-action: pan-x;
+    }
+
+    .portfolio-box .navigation button {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.8rem;
+    }
+
+    .portfolio-box .navigation .arrow-right {
+        margin-right: 0.5rem;
+    }
+
+    .portfolio-box .navigation .arrow-left {
+        margin-left: 0.5rem;
+    }
+
+    /* Improving the display of images on mobile */
+    .portfolio-carousel .img-item {
+        padding: 0 0.5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* Fix profile image size on smaller screens */
+    .home-img .img-box {
+        width: 30rem !important;
+        height: 30rem !important;
+        min-width: 30rem !important;
+        min-height: 30rem !important;
+        max-width: none !important;
+        max-height: none !important;
+    }
+
+    .contact-box .field-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .home-detail,
+    .resume-box h2,
+    .resume-box .heading,
+    .resume-box.desc,
+    .resume-detail.about .resume-item {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .logo {
+        font-size: 2.2rem;
+    }
+    .home {
+        padding: 0 2%;
+    }
+    section {
+        padding: 10rem 2% 2rem;
+    }
+    header {
+        padding: 2rem 3%;
+    }
+}
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .home {
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .home-img .img-box {
+        width: 25rem;
+        height: 25rem;
+    }
+    section {
+        padding: 8rem 9% 2rem;
+    }
+}
+
+/* Prevent unwanted horizontal scrolling */
+.portfolio-carousel {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* Add visual indicators of interaction */
+.portfolio-carousel:focus {
+    outline: 2px solid var(--main-color);
+    outline-offset: 2px;
+}
+
+/* Improve image display on high-resolution screens */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min-resolution: 192dpi) {
+    .portfolio-carousel .img-item img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Fix for iOS Safari viewport height */
+@supports (-webkit-touch-callout: none) {
+    section {
+        min-height: -webkit-fill-available;
+    }
+}
