@@ -53,8 +53,8 @@
     <nav>
         <a href="{{route('portfolio.home')}}" class="">Home</a>
         <a href="{{route('portfolio.services')}}" class="">Services</a>
-        <a href="{{route('portfolio.resume')}}" class="active">Resume</a>
-        <a href="{{route('portfolio.portfolio')}}" class="">Portfolio</a>
+        <a href="{{route('portfolio.resume')}}" class="">Resume</a>
+        <a href="{{route('portfolio.portfolio')}}" class="active">Portfolio</a>
         <a href="{{route('portfolio.emails.contact')}}" class="">Contact</a>
     </nav>
 </header>

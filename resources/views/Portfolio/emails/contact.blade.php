@@ -53,11 +53,11 @@
     <a href="{{route('portfolio.home')}}" class="logo">Portfolio.</a>
     <i class="bx bx-menu" id="menu-icon"></i>
     <nav>
-        <a href="{{route('portfolio.home')}}" class="active">Home</a>
+        <a href="{{route('portfolio.home')}}" class="">Home</a>
         <a href="{{route('portfolio.services')}}" class="">Services</a>
         <a href="{{route('portfolio.resume')}}" class="">Resume</a>
         <a href="{{route('portfolio.portfolio')}}" class="">Portfolio</a>
-        <a href="{{route('portfolio.emails.contact')}}" class="">Contact</a>
+        <a href="{{route('portfolio.emails.contact')}}" class="active">Contact</a>
     </nav>
 </header>
 <!--end header-->
