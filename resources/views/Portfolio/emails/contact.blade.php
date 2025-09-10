@@ -131,7 +131,18 @@
                     <input type="text" name="subject" placeholder="Email Subject*" required>
                     <textarea name="message" placeholder="Your Message*" required></textarea>
                 </div>
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" class="btn" aria-label="Send Message" style="display: inline-flex; align-items: center; gap: 6px;">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         width="22" height="22"
+                         stroke="currentColor"
+                         stroke-width="2">
+                        <path d="M22 2L11 13" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Send Message
+                </button>
             </form>
         </div>
 

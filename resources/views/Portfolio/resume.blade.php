@@ -196,7 +196,7 @@
                         <p>Nationality:<span>Egyptian</span></p>
                     </div>
                     <div class="resume-item">
-                        <p>Experience<span>1+ Years</span></p>
+                        <p>Experience<span>2 Years</span></p>
                     </div>
                     <div class="resume-item">
                         <p>Full Time:<span>Available</span></p>

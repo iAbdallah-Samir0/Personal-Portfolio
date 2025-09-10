@@ -69,10 +69,30 @@
             <span style="--i:2;" data-text="Backend Developer">Backend Developer</span>
             <span style="--i:1;" data-text="PHP Developer | Laravel">PHP Developer | Laravel</span>
         </h2>
-        <p>Skilled Back-end developer who's passionate about his work, learning new skills, and solving problems. Knowledgeable in testing and debugging processes. Bringing forth expertise in the design, installation, testing, and maintenance of web systems.</p>
+        <p>I'm a 👨‍💻 Back-End Web Developer with over 2 years of experience, specializing in PHP and Laravel. I’ve built secure, scalable web applications and designed 🔗 RESTful APIs, with strong skills in 🗄️ MySQL and Datagrip. I’m experienced in implementing 🔒 authentication systems and integrating 🔌 third-party services. With a good grasp of 🎨 HTML, CSS and JavaScript, I collaborate smoothly with front-end teams. I’m also familiar with 🐳 Docker, 🔁 CI/CD pipelines, and 🖥️ server management as part of my DevOps workflow.</p>
 
         <div class="btn-sci">
-            <a href="{{asset('assets/cv/Abdallah-Samir-Resume.pdf')}}" download="Abdallah-Samir-Resume.pdf" class="btn" id="downloadCVBtn">Download CV</a>
+            <a href="{{asset('assets/cv/Abdallah-Samir-Resume.pdf')}}"
+               download="Abdallah-Samir-Resume.pdf"
+               class="btn"
+               id="downloadCVBtn"
+               aria-label="Download CV"
+               style="display: inline-flex; align-items: center; gap: 6px;">
+
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                     viewBox="0 0 16 16" aria-hidden="true" focusable="false"
+                     height="28px" width="28px" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095
+             0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5
+             0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923
+             1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0
+             .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5
+             0 0 0-.708.708l3 3z"></path>
+                </svg>
+
+                <span>Download Resume</span>
+            </a>
             <div class="sci">
                 <a href="https://github.com/iAbdallah-Samir0"><i class="bx bxl-github"></i></a>
                 <a href="https://www.linkedin.com/in/abdallah-samir-745918224?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="bx bxl-linkedin"></i></a>
