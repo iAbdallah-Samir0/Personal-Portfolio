@@ -15,7 +15,7 @@
     <!-- Open Graph (Social Media) -->
     <meta property="og:title" content="Portfolio | Abdallah Samir | Backend Developer PHP|Laravel">
     <meta property="og:description" content="Backend Developer specialized in PHP and Laravel. Learn more about my work and services.">
-    <meta property="og:image" content="https://abdallahsamir.site/assets/img/my_portfolio_8.png">
+    <meta property="og:image" content="https://abdallahsamir.site/assets/img/my_portfolio_9.png">
     <meta property="og:url" content="https://abdallahsamir.site/">
     <meta property="og:type" content="website">
 
@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:title" content="Portfolio | Abdallah Samir | Backend Developer PHP|Laravel">
     <meta name="twitter:description" content="Backend Developer specialized in PHP and Laravel. Explore my work and services.">
-    <meta name="twitter:image" content="https://abdallahsamir.site/assets/img/my_portfolio_8.png">
+    <meta name="twitter:image" content="https://abdallahsamir.site/assets/img/my_portfolio_9.png">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://abdallahsamir.site/" />
