@@ -91,7 +91,7 @@
              0 0 0-.708.708l3 3z"></path>
                 </svg>
 
-                <span>Download Resume</span>
+                <span>Resume</span>
             </a>
             <div class="sci">
                 <a href="https://github.com/iAbdallah-Samir0"><i class="bx bxl-github"></i></a>
