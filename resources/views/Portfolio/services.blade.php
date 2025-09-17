@@ -6,6 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
+    <!-- PWA Meta Tags -->
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#1f242d">
+    <meta name="msapplication-navbutton-color" content="#1f242d">
+    <meta name="navigationbar-color" content="#1f242d">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
+
+    <!-- Apple PWA Configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Abdallah Portfolio">
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
     <!-- Meta Tags for SEO -->
     <title>Abdallah Samir | Backend Developer | Portfolio|Services</title>
     <meta name="description" content="I am Abdallah Samir, a Backend Developer specialized in PHP and Laravel. I provide professional web and application solutions. Explore my work and services.">
@@ -15,7 +48,7 @@
     <!-- Open Graph (Social Media) -->
     <meta property="og:title" content="Portfolio | Abdallah Samir | Backend Developer PHP|Laravel">
     <meta property="og:description" content="Backend Developer specialized in PHP and Laravel. Learn more about my work and services.">
-    <meta property="og:image" content="https://abdallahsamir.site/assets/img/my_portfolio_9.png">
+    <meta property="og:image" content="https://abdallahsamir.site/assets/img/my_portfolio_10.png">
     <meta property="og:url" content="https://abdallahsamir.site/">
     <meta property="og:type" content="website">
 
@@ -23,7 +56,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:title" content="Portfolio | Abdallah Samir | Backend Developer PHP|Laravel">
     <meta name="twitter:description" content="Backend Developer specialized in PHP and Laravel. Explore my work and services.">
-    <meta name="twitter:image" content="https://abdallahsamir.site/assets/img/my_portfolio_9.png">
+    <meta name="twitter:image" content="https://abdallahsamir.site/assets/img/my_portfolio_10.png">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://abdallahsamir.site/" />
@@ -141,90 +174,10 @@
 </section>
 <!--end services section -->
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const menuIcon = document.querySelector('#menu-icon');
-        const navbar = document.querySelector('header nav');
-        const header = document.querySelector('header');
-        const servicesSection = document.getElementById('servicesSection');
-        const barsBox = document.getElementById('barsBox');
+<!-- custom js -->
+<script src="{{ asset('assets/js/services.js') }}"></script>
 
-        // Start animation of tapes
-        setTimeout(() => {
-            barsBox.classList.add('loaded');
-        }, 500);
-
-        // Hide the ribbons item permanently
-        setTimeout(() => {
-            barsBox.style.display = 'none';
-        }, 4000);
-
-        // Show all content gradually 4.8 seconds after the last bar appears
-        setTimeout(() => {
-            // Show the header first
-            header.classList.add('show');
-        }, 4300);
-
-        setTimeout(() => {
-            // Show the Services section gradually
-            servicesSection.classList.add('show');
-        }, 4800);
-
-        // Menu wizard for mobile
-        if (menuIcon && navbar) {
-            menuIcon.addEventListener('click', () => {
-                menuIcon.classList.toggle('bx-x');
-                navbar.classList.toggle('active');
-                console.log("menu clicked!");
-            });
-
-            // Close menu when clicking on links
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        menuIcon.classList.remove('bx-x');
-                        navbar.classList.remove('active');
-                    }
-                });
-            });
-
-            // Close the menu when you click outside
-            document.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768 &&
-                    !navbar.contains(e.target) &&
-                    !menuIcon.contains(e.target)) {
-                    menuIcon.classList.remove('bx-x');
-                    navbar.classList.remove('active');
-                }
-            });
-        }
-
-        // Handling window resizing
-        const setVH = () => {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        };
-
-        setVH();
-        window.addEventListener('resize', setVH);
-        window.addEventListener('orientationchange', () => {
-            setTimeout(setVH, 100);
-        });
-
-        // Optimize performance for mobile devices
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                const homeImg = document.querySelector('.home-img .img-box');
-                if (homeImg && window.innerWidth <= 768) {
-                    homeImg.style.width = Math.min(350, window.innerWidth * 0.6) + 'px';
-                    homeImg.style.height = Math.min(350, window.innerWidth * 0.6) + 'px';
-                }
-            }, 100);
-        });
-    });
-</script>
+<!-- PWA JavaScript -->
+<script src="/pwa.js"></script>
 </body>
 </html>

@@ -6,6 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
+    <!-- PWA Meta Tags -->
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#1f242d">
+    <meta name="msapplication-navbutton-color" content="#1f242d">
+    <meta name="navigationbar-color" content="#1f242d">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
+
+    <!-- Apple PWA Configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Abdallah Portfolio">
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
     <!-- Meta Tags for SEO -->
     <title>Abdallah Samir | Backend Developer | Portfolio|My Works</title>
     <meta name="description" content="I am Abdallah Samir, a Backend Developer specialized in PHP and Laravel. I provide professional web and application solutions. Explore my work and services.">
@@ -15,7 +48,7 @@
     <!-- Open Graph (Social Media) -->
     <meta property="og:title" content="Portfolio | Abdallah Samir | Backend Developer PHP|Laravel">
     <meta property="og:description" content="Backend Developer specialized in PHP and Laravel. Learn more about my work and services.">
-    <meta property="og:image" content="https://abdallahsamir.site/assets/img/my_portfolio_9.png">
+    <meta property="og:image" content="https://abdallahsamir.site/assets/img/my_portfolio_10.png">
     <meta property="og:url" content="https://abdallahsamir.site/">
     <meta property="og:type" content="website">
 
@@ -23,7 +56,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:title" content="Portfolio | Abdallah Samir | Backend Developer PHP|Laravel">
     <meta name="twitter:description" content="Backend Developer specialized in PHP and Laravel. Explore my work and services.">
-    <meta name="twitter:image" content="https://abdallahsamir.site/assets/img/my_portfolio_9.png">
+    <meta name="twitter:image" content="https://abdallahsamir.site/assets/img/my_portfolio_10.png">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://abdallahsamir.site/" />
@@ -119,7 +152,7 @@
                         <img src="{{asset('assets/img/hos_sys_7.png')}}" alt="">
                     </div>
                     <div class="img-item">
-                        <img src="{{asset('assets/img/my_portfolio_9.png')}}" alt="">
+                        <img src="{{asset('assets/img/my_portfolio_10.png')}}" alt="">
                     </div>
                 </div>
 
@@ -133,172 +166,11 @@
 </section>
 <!--end Portfolio Section -->
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const menuIcon = document.querySelector('#menu-icon');
-        const navbar = document.querySelector('header nav');
-        const header = document.querySelector('header');
-        const portfolioSection = document.getElementById('portfolioSection');
-        const barsBox = document.getElementById('barsBox');
 
-        // Start animation of tapes
-        setTimeout(() => {
-            barsBox.classList.add('loaded');
-        }, 500);
+<!-- custom js -->
+<script src="{{ asset('assets/js/portfolio.js') }}"></script>
 
-        // Hide the ribbons item permanently
-        setTimeout(() => {
-            barsBox.style.display = 'none';
-        }, 4000);
-
-        // Show the header first after the end of the last bar
-        setTimeout(() => {
-            header.classList.add('show');
-        }, 4300);
-
-        // Show the Portfolio section 4.8 seconds after the header appears
-        setTimeout(() => {
-            portfolioSection.classList.add('show');
-            // Reactivate scroll after the page has completed loading
-            document.documentElement.style.overflow = 'auto';
-            document.documentElement.style.overflowX = 'hidden';
-            document.body.style.overflow = 'auto';
-            document.body.style.overflowX = 'hidden';
-        }, 4800);
-
-        // Portfolio carousel functionality
-        const portfolioDetails = document.querySelectorAll('.portfolio-detail');
-        const imgSlide = document.querySelector('.img-slide');
-        const arrowLeft = document.querySelector('.arrow-left');
-        const arrowRight = document.querySelector('.arrow-right');
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            // Carousel website update
-            const translateX = -(currentIndex * 33.333333);
-            imgSlide.style.transform = `translateX(${translateX}%)`;
-
-            // Update portfolio details
-            portfolioDetails.forEach((detail, index) => {
-                detail.classList.toggle('active', index === currentIndex);
-            });
-
-            // Update navigation buttons
-            arrowLeft.classList.toggle('disabled', currentIndex === 0);
-            arrowRight.classList.toggle('disabled', currentIndex === portfolioDetails.length - 1);
-        }
-
-        arrowRight.addEventListener('click', () => {
-            if (currentIndex < portfolioDetails.length - 1) {
-                currentIndex++;
-                updateCarousel();
-            }
-        });
-
-        arrowLeft.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
-
-        // Touch support for mobile
-        let touchStartX = 0;
-        let touchStartY = 0;
-        let isSwiping = false;
-
-        const carousel = document.querySelector('.portfolio-carousel');
-
-        carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-            isSwiping = false;
-        }, { passive: true });
-
-        carousel.addEventListener('touchmove', (e) => {
-            const touchCurrentX = e.touches[0].clientX;
-            const touchCurrentY = e.touches[0].clientY;
-
-            const diffX = Math.abs(touchCurrentX - touchStartX);
-            const diffY = Math.abs(touchCurrentY - touchStartY);
-
-            if (diffX > diffY && diffX > 10) {
-                isSwiping = true;
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        carousel.addEventListener('touchend', (e) => {
-            if (!isSwiping) return;
-
-            const touchEndX = e.changedTouches[0].clientX;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > 50) {
-                if (diff > 0 && currentIndex < portfolioDetails.length - 1) {
-                    currentIndex++;
-                    updateCarousel();
-                } else if (diff < 0 && currentIndex > 0) {
-                    currentIndex--;
-                    updateCarousel();
-                }
-            }
-        }, { passive: true });
-
-        // Initialize carousel
-        updateCarousel();
-
-        // Menu wizard for mobile
-        if (menuIcon && navbar) {
-            menuIcon.addEventListener('click', () => {
-                menuIcon.classList.toggle('bx-x');
-                navbar.classList.toggle('active');
-            });
-
-            // Close menu when clicking on links
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        menuIcon.classList.remove('bx-x');
-                        navbar.classList.remove('active');
-                    }
-                });
-            });
-
-            // Close the menu when you click outside
-            document.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768 &&
-                    !navbar.contains(e.target) &&
-                    !menuIcon.contains(e.target)) {
-                    menuIcon.classList.remove('bx-x');
-                    navbar.classList.remove('active');
-                }
-            });
-        }
-
-        // Handling window resizing
-        const setVH = () => {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        };
-
-        setVH();
-        window.addEventListener('resize', setVH);
-        window.addEventListener('orientationchange', () => {
-            setTimeout(setVH, 100);
-        });
-
-        // Improved performance for mobile devices - Removed impact on Home image
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                // Remove the code that affects the home image
-                // Because this causes the image to be reduced when moving from Portfolio
-            }, 100);
-        });
-    });
-</script>
+<!-- PWA JavaScript -->
+<script src="/pwa.js"></script>
 </body>
 </html>

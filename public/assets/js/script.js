@@ -66,18 +66,4 @@ arrowLeft.addEventListener('click', () => {
 
 
 
-// const menuIcon = document.querySelector('#menu-icon');
-// const navbar = document.querySelector('header nav');
-// menuIcon.addEventListener('click', () => {
-//     menuIcon.classList.toggle('bx-x');
-//     navbar.classList.toggle('active');
-// });
-//
-// const activePage = () => {
-//     const header = document.querySelector('header');
-//     const barsBox = document.querySelector('.bars-box');
-//
-//     menuIcon.classList.remove('bx-x');
-//     navbar.classList.remove('active');
-// };
 
